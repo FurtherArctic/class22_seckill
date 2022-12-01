@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.powernode.seckillservice.dao.OrdersDao">
+    <sql id="Base_Column_List">
+        id,uid,goods_id,buy_num,buy_price,order_money,create_time,update_time,status
+    </sql>
+
+    <!--添加订单orders-->
+    <insert id="addOrder">
+        insert into orders
+        (uid, goods_id, buy_num, buy_price, order_money, create_time, update_time, status)
+        values (#{uid}, #{goodsId}, #{buyNum}, #{buyPrice}, #{orderMoney}, #{createTime}, #{updateTime}, #{status})
+    </insert>
+
+    <!--根据订单id更新订单状态-->
+    <update id="updateStatusById">
+        update orders
+        <set>status=#{status},update_time=#{updateTime}</set>
+        where id=#{id}
+    </update>
+
+    <!--根据订单id查询订单-->
+    <select id="getById" resultType="com.powernode.common.entity.Orders">
+        select
+        <include refid="Base_Column_List"/>
+        from orders where id=#{id}
+    </select>
+
+</mapper>
