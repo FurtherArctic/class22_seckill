@@ -3,10 +3,8 @@ package com.powernode.seckillservice;
 import com.powernode.common.entity.Orders;
 import com.powernode.seckillservice.dao.OrdersDao;
 import jakarta.annotation.Resource;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.web.context.annotation.RequestScope;
 
 import java.math.BigDecimal;
 import java.util.Date;
